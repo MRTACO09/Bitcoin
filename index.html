@@ -1,0 +1,68 @@
+<html>
+  <head>
+    <title>Bitcoin Mining</title>
+    <style>
+    .text{
+      font-family: 'Lucida Console', 'Courier New', 'monospace';
+      }
+      .cash{
+        height: 50px;
+        width: 100px;
+        background-color: green;
+        color: white;
+        border-style: none;
+      }
+      .upgraders{
+        height: 30px;
+        width: 125px;
+        background-color: gray;
+        border-color: black;
+        border-top-style: none;
+        border-right-style: none;
+        border-bottom-style: none;
+        border-left-style: solid;
+        border-width: 5px;
+      }
+</style>
+  </head>
+  <body class = 'text'>
+    <h1>Welcome To Bitcoin Mining!!!</h1>
+    <h2 class = 'text'>Cash:</h2>
+    <h2 class = 'text' id = 'cash'></h2>
+    <button class = 'cash' onclick='increaseCash();'>Click Me For Bitcoin</button>
+    <br/>
+    <br/>
+    <div>
+      <button class = 'upgraders' onclick = 'multiplier(2);'>x2 Cash Per Click</button>
+      <p>Cost: $100</p>
+      <br/>
+      <br/>
+      <button class = 'upgraders' onclick = 'multiplier(4);'>x4 Cash Per Click</button>
+      <p>Cost: $200</p>
+      <br/>
+      <br/>
+      <button class = 'upgraders' onclick = 'multiplier(8);'>x8 Cash Per Click</button>
+      <p>Cost: $400</p>
+      <br/>
+      <br/>
+      <button class = 'upgraders' onclick = 'multiplier(16);'>x16 Cash Per Click</button>
+      <p>Cost: $800</p>
+    </div>
+    <script>
+      var showCash = document.getElementById('cash');
+      var cash = 0;
+      var changeCash = 2;
+      increaseCash = function(){
+        cash += changeCash;
+        showCash.innerHTML = cash;
+      }
+      multiplier = function(howMany){
+        if(cash > howMany*50){
+           changeCash = changeCash*howMany;
+          cash = cash - howMany*50;
+        }
+        showCash.innerHTML = cash;
+      }
+    </script>
+  </body>
+</html>
